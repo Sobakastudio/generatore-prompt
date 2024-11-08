@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generatore di Prompt Twitter</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Genera un Prompt Personalizzato per Twitter</h1>
+  <form id="promptForm">
+    <!-- Campo per il tono di voce -->
+    <label for="tone">Tono di Voce:</label>
+    <select id="tone" name="tone">
+      <option value="informale">Informale</option>
+      <option value="professionale">Professionale</option>
+      <option value="motivazionale">Motivazionale</option>
+    </select>
+
+    <!-- Campo per lo stile di scrittura -->
+    <label for="style">Stile di Scrittura:</label>
+    <select id="style" name="style">
+      <option value="coinvolgente">Coinvolgente</option>
+      <option value="umoristico">Umoristico</option>
+      <option value="educativo">Educativo</option>
+    </select>
+
+    <!-- Campo per l'argomento -->
+    <label for="topic">Argomento:</label>
+    <input type="text" id="topic" name="topic" placeholder="Inserisci l'argomento...">
+  </form>
+
+  <div id="promptOutput">
+    <h2>Prompt Generato:</h2>
+    <p id="prompt"></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
