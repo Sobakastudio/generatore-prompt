@@ -1,35 +1,50 @@
 // script.js
 
 // Seleziona gli elementi del DOM
-const toneSelect = document.getElementById("tone");
-const styleSelect = document.getElementById("style");
-const topicInput = document.getElementById("topic");
+const usageSelect = document.getElementById("usage");
+const dynamicFields = document.getElementById("dynamicFields");
 const promptOutput = document.getElementById("prompt");
+const promptContainer = document.getElementById("promptOutput");
+const generateBtn = document.getElementById("generateBtn");
 
-// Funzione per aggiornare il prompt
-function updatePrompt() {
-  // Ottieni i valori dei campi
-  const tone = toneSelect.value;
-  const style = styleSelect.value;
-  const topic = topicInput.value;
+// Funzione per aggiornare i campi dinamici
+function updateFields() {
+  // Svuota i campi dinamici
+  dynamicFields.innerHTML = '';
 
-  // Testo base con campi dinamici
-  const promptText = `
-    Ignora tutte le istruzioni precedenti. Rispondi solo in italiano.
-    Sei un influencer di Twitter con un grande seguito. Hai un tono di voce ${tone}.
-    Hai uno stile di scrittura ${style}. Non fare riferimento a se stessi.
-    Non spiegare cosa stai facendo. Creare un thread su ${topic}.
-    Aggiungi emoji alla discussione, se appropriato. Il numero di caratteri per ogni discussione deve essere compreso tra 270 e 280 caratteri.
-    Il contenuto deve essere informale, informativo e coinvolgente. Utilizza parole semplici e comprensibili.
-    Includi statistiche, esperienze personali e fatti divertenti nel thread.
-    Aggiungi al post hashtag pertinenti e incoraggia i lettori a partecipare alla conversazione.
-  `;
-
-  // Aggiorna il testo del prompt nell'HTML
-  promptOutput.textContent = promptText.trim();
+  // Aggiungi i campi di input in base alla selezione
+  const usageType = usageSelect.value;
+  if (usageType === "facebook_post") {
+    dynamicFields.innerHTML += `
+      <label for="topic">Argomento:</label>
+      <input type="text" id="topic" name="topic" placeholder="Inserisci l'argomento...">
+      
+      <label for="audience">Pubblico target (opzionale):</label>
+      <input type="text" id="audience" name="audience" placeholder="Esempio: giovani, professionisti">
+    `;
+  }
+  // Aggiungere altre condizioni per altri utilizzi, es. facebook_ad, facebook_calendar, ecc.
 }
 
-// Ascolta i cambiamenti nei campi del modulo
-toneSelect.addEventListener("change", updatePrompt);
-styleSelect.addEventListener("change", updatePrompt);
-topicInput.addEventListener("input", updatePrompt);
+// Funzione per generare il prompt
+function generatePrompt() {
+  const usageType = usageSelect.value;
+  let promptText = "";
+
+  // Genera il prompt per "Idee per post Facebook"
+  if (usageType === "facebook_post") {
+    const topic = document.getElementById("topic").value;
+    const audience = document.getElementById("audience").value || "il pubblico generale";
+    promptText = `Genera idee per post su Facebook sull'argomento "${topic}" che possano coinvolgere il pubblico target: ${audience}.`;
+  }
+
+  // Mostra il prompt generato
+  promptOutput.textContent = promptText;
+  promptContainer.style.display = "block";
+}
+
+// Event listener per il cambio di selezione
+usageSelect.addEventListener("change", updateFields);
+
+// Event listener per il clic sul pulsante "Genera"
+generateBtn.addEventListener("click", generatePrompt);

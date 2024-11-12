@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carosello Instagram</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <h1>Generatore di Caroselli per Instagram</h1>
+  
+  <form id="instagramCarouselForm">
+    <!-- Selettore per il tono di voce -->
+    <label for="tone">Tono di Voce:</label>
+    <select id="tone" name="tone">
+      <option value="Predefinito">Predefinito</option>
+      <option value="autorevole">autorevole</option>
+      <option value="premuroso">premuroso</option>
+      <option value="disinvolto">disinvolto</option>
+      <option value="allegro">allegro</option>
+      <option value="rozzo">rozzo</option>
+      <option value="conservatore">conservatore</option>
+      <option value="colloquiale">colloquiale</option>
+      <option value="creativo">creativo</option>
+      <option value="asciutto">asciutto</option>
+      <option value="tagliente">tagliente</option>
+      <option value="entusiasta">entusiasta</option>
+      <option value="espositivo">espositivo</option>
+      <option value="formale">formale</option>
+      <option value="franco">franco</option>
+      <option value="amichevole">amichevole</option>
+      <option value="divertente">divertente</option>
+      <option value="umoristico">umoristico</option>
+      <option value="informativo">informativo</option>
+      <option value="irriverente">irriverente</option>
+      <option value="giornalistico">giornalistico</option>
+      <option value="concreto">concreto</option>
+      <option value="nostalgico">nostalgico</option>
+      <option value="oggettivo">oggettivo</option>
+      <option value="appassionato">appassionato</option>
+      <option value="poetico">poetico</option>
+      <option value="giocoso">giocoso</option>
+      <option value="professionale">professionale</option>
+      <option value="provocatorio">provocatorio</option>
+      <option value="stravagante">stravagante</option>
+      <option value="rispettoso">rispettoso</option>
+      <option value="romantico">romantico</option>
+      <option value="sarcastico">sarcastico</option>
+      <option value="serio">serio</option>
+      <option value="intelligente">intelligente</option>
+      <option value="sprezzante">sprezzante</option>
+      <option value="soggettivo">soggettivo</option>
+      <option value="simpatico">simpatico</option>
+      <option value="trendy">trendy</option>
+      <option value="affidabile">affidabile</option>
+      <option value="spiritoso">spiritoso</option>
+      <option value="ottimista">ottimista</option>
+      <option value="impassibile">impassibile</option>
+    </select>
+
+    <!-- Selettore per lo stile di scrittura -->
+    <label for="style">Stile:</label>
+    <select id="style" name="style">
+      <option value="Predefinito">Predefinito</option>
+      <option value="Accademico">Accademico</option>
+      <option value="Analitico">Analitico</option>
+      <option value="Argomentato">Argomentato</option>
+      <option value="Conversazionale">Conversazionale</option>
+      <option value="Creativo">Creativo</option>
+      <option value="Critico">Critico</option>
+      <option value="Descrittivo">Descrittivo</option>
+      <option value="Epico">Epico</option>
+      <option value="Epistolare">Epistolare</option>
+      <option value="Espositivo">Espositivo</option>
+      <option value="Informativo">Informativo</option>
+      <option value="Istruttivo">Istruttivo</option>
+      <option value="Giornalistico">Giornalistico</option>
+      <option value="Metaforico">Metaforico</option>
+      <option value="Narrativo">Narrativo</option>
+      <option value="Persuasivo">Persuasivo</option>
+      <option value="Poetico">Poetico</option>
+      <option value="Satirico">Satirico</option>
+      <option value="Tecnico">Tecnico</option>
+    </select>
+
+    <!-- Campo per l'argomento -->
+    <label for="topic">Argomento:</label>
+    <input type="text" id="topic" name="topic" placeholder="Inserisci l'argomento del carosello...">
+
+    <!-- Pulsante per generare il prompt -->
+    <button type="button" id="generateBtn">Genera</button>
+  </form>
+
+  <div id="promptOutput" style="display: none;">
+    <h2>Prompt Generato:</h2>
+    <p id="prompt"></p>
+  </div>
+
+  <a href="../index.html">Torna alla Pagina Principale</a>
+
+  <script src="../js/instagram-carousel.js"></script>
+</body>
+</html>
